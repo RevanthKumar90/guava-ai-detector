@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.Proj_Guava" parent="Theme.Material3.Light.NoActionBar">
+
+        <!-- 🌿 Primary Colors -->
+        <item name="colorPrimary">@color/primaryGreen</item>
+        <item name="colorSecondary">@color/lightGreen</item>
+
+        <!-- Background -->
+        <item name="android:colorBackground">@color/background</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/primaryGreen</item>
+
+    </style>
+
+    <style name="Theme.Proj_Guava" parent="Base.Theme.Proj_Guava" />
+
+</resources>

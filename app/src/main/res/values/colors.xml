@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- 🌿 PRIMARY THEME (Natural Green) -->
+    <color name="primaryGreen">#2E7D32</color>
+    <color name="darkGreen">#1B5E20</color>
+    <color name="accentGreen">#66BB6A</color>
+    <color name="lightGreen">#C8E6C9</color>
+
+    <!-- 🔥 BUTTON -->
+    <color name="buttonGradientStart">#2E7D32</color>
+    <color name="buttonGradientEnd">#66BB6A</color>
+
+    <!-- ⚠ SEVERITY -->
+    <color name="severityLow">#43A047</color>
+    <color name="severityMedium">#FB8C00</color> <!-- 🔥 slightly deeper orange -->
+    <color name="severityHigh">#D32F2F</color>   <!-- 🔥 stronger red -->
+
+    <!-- 📝 TEXT (CRISP, IMPROVED READABILITY) -->
+    <color name="textPrimary">#121212</color>   <!-- 🔥 slightly darker -->
+    <color name="textSecondary">#546E54</color> <!-- 🔥 better contrast -->
+    <color name="textWhite">#FFFFFF</color>
+
+    <!-- 📦 BACKGROUND -->
+    <color name="background">#F1F8F4</color>
+    <color name="cardWhite">#FFFFFF</color>
+
+    <!-- 🌫 GLASS EFFECT -->
+    <color name="glassLight">#80FFFFFF</color>
+    <color name="glassMedium">#99FFFFFF</color>
+    <color name="glassDark">#B3FFFFFF</color>
+    <color name="glassWhite">#CCFFFFFF</color>
+
+    <!-- 🌿 GLASS BORDER -->
+    <color name="glassBorder">#40FFFFFF</color>
+
+    <!-- 🌑 SHADOWS -->
+    <color name="shadowLight">#10000000</color>
+    <color name="shadowMedium">#20000000</color>
+
+    <!-- 📊 PROGRESS -->
+    <color name="progressBackground">#E6ECE6</color>
+
+    <color name="white">#FFFFFF</color>
+
+</resources>

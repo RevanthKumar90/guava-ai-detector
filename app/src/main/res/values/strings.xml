@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="app_name">Guava Leaf AI Detector</string>
+
+    <!-- Actions -->
+    <string name="scan_leaf">Scan Leaf</string>
+    <string name="upload_gallery">Upload from Gallery</string>
+
+    <!-- Sections -->
+    <string name="ai_analysis">AI Analysis</string>
+    <string name="infection_severity">Infection Severity</string>
+    <string name="treatment_suggestions">Treatment</string>
+    <string name="prevention_tips">Prevention</string>
+
+    <!-- States -->
+    <string name="scan_to_begin">Scan a leaf to begin</string>
+    <string name="pending_analysis">Analyzing leaf...</string>
+
+</resources>

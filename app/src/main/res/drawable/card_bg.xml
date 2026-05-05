@@ -1,0 +1,9 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Soft glass white -->
+    <solid android:color="@color/glassWhite"/>
+
+    <!-- Smooth premium corners -->
+    <corners android:radius="20dp"/>
+
+</shape>

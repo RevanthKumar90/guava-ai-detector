@@ -1,0 +1,326 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--  HISTORY BUTTON (ONLY ADDITION) -->
+    <ImageButton
+        android:id="@+id/historyBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|end"
+        android:layout_margin="12dp"
+        android:elevation="30dp"
+        android:translationZ="30dp"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_menu_recent_history"
+        android:contentDescription="History"/>
+
+    <!-- BACKGROUND -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_leaf_background"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_leaf_blur"
+        android:scaleType="centerCrop"
+        android:alpha="0.25"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_overlay"/>
+
+    <!-- LOADER -->
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:indeterminateTint="@color/primaryGreen"/>
+
+    <!-- CONTENT -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- TITLE -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="24sp"
+                android:textColor="@color/textPrimary"
+                android:gravity="center"
+                android:fontFamily="sans-serif-semibold"
+                android:letterSpacing="0.03"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- HEADER LINE -->
+            <View
+                android:layout_width="60dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:background="@color/accentGreen"/>
+
+            <!-- IMAGE -->
+            <ImageView
+                android:id="@+id/leafImage"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/card_glass"
+                android:elevation="6dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_leaf_blur"
+                android:clipToOutline="true"/>
+
+            <!-- BUTTONS -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/scanBtn"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/scan_leaf"
+                android:textColor="@color/textWhite"
+                android:textAllCaps="false"
+                android:background="@drawable/button_green"
+                android:backgroundTint="@null"
+                android:elevation="6dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGallery"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/upload_gallery"
+                android:textColor="@color/textWhite"
+                android:textAllCaps="false"
+                android:background="@drawable/button_green"
+                android:backgroundTint="@null"
+                android:layout_marginTop="10dp"
+                android:elevation="6dp"/>
+
+            <!-- AI CARD -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_glass"
+                android:layout_marginTop="16dp"
+                android:padding="14dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ai_analysis"
+                    android:textSize="18sp"
+                    android:textColor="@color/textPrimary"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detected Disease (AI Result)"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:id="@+id/diseaseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--"
+                    android:textSize="22sp"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-semibold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Model: CNN (TensorFlow Lite)"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:id="@+id/confidencePercent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Confidence: 0%"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="2dp"/>
+
+                <ProgressBar
+                    android:id="@+id/confidenceBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="6dp"
+                    android:progressTint="@color/accentGreen"
+                    android:backgroundTint="@color/progressBackground"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Top Predictions"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <TextView
+                    android:id="@+id/top3Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AI Explanation"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <TextView
+                    android:id="@+id/explanationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Analyzes leaf patterns like spots and discoloration to detect disease."
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+
+            <!-- SEVERITY -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_glass"
+                android:layout_marginTop="14dp"
+                android:padding="14dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/infection_severity"
+                    android:textColor="@color/textPrimary"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <TextView
+                    android:id="@+id/severityText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Severity: LOW (0%)"
+                    android:textColor="@color/accentGreen"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="sans-serif-semibold"/>
+
+                <ProgressBar
+                    android:id="@+id/severityBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="6dp"
+                    android:progressTint="@color/accentGreen"
+                    android:backgroundTint="@color/progressBackground"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Severity calculated based on infected pixel ratio."
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+
+            <!-- TREATMENT -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_glass"
+                android:layout_marginTop="14dp"
+                android:padding="14dp"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/treatment_suggestions"
+                    android:textColor="@color/primaryGreen"
+                    android:fontFamily="sans-serif-semibold"/>
+
+                <TextView
+                    android:id="@+id/treatmentText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scan_to_begin"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prevention_tips"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <TextView
+                    android:id="@+id/preventionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scan_to_begin"
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recommendation"
+                    android:textColor="@color/textPrimary"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Apply appropriate treatment based on detected disease."
+                    android:textColor="@color/textSecondary"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+
+            <!-- RESCAN -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/rescanBtn"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Scan Another Leaf"
+                android:textColor="@color/textWhite"
+                android:textAllCaps="false"
+                android:background="@drawable/button_green"
+                android:backgroundTint="@null"
+                android:layout_marginTop="16dp"
+                android:elevation="6dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
